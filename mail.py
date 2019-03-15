@@ -10,7 +10,7 @@ smtp_server = "smtp.gmail.com"
 smtp_port = 465
 
 subject = "MAIL FROM PYTHON CODE"
-body = 'Hello <b>X</b>,<br/>This mail is sent from python code.<br/><br/><i>HTML</i><span style="background: red; color: green; font-weight: bold;font-size: 24px; font-family: Calibri;">works like magic</span><br/><br/>Also, check out the attachment.<br/><figure> <img src="cid:shivaji_img" alt="Shivaji" style="width:100%"> <figcaption>Jai Bhawani.... Jai Shivaji...</figcaption></figure>'
+body = 'Dear <b>X</b>,<br/>This mail is sent from python code.<br/><br/><i>HTML</i><span style="background: red; color: green; font-weight: bold;font-size: 24px; font-family: Calibri;">works like magic</span><br/><br/>Also, check out the attachment.<br/><figure> <img src="cid:shivaji_img" alt="Shivaji" style="width:100%"> <figcaption>Jai Bhawani.... Jai Shivaji...</figcaption></figure>'
 username = "ssshukla1993@gmail.com"
 sender_email = "The Great Shrinivas Shukla <ssshukla1993@gmail.com>"
 receiver_emails = ["ssshukla1993@gmail.com"]
@@ -42,7 +42,7 @@ encoders.encode_base64(part)
 # Add header as key/value pair to attachment part
 part.add_header(
     "Content-Disposition",
-    f"attachment; filename= {filename}",
+    "attachment; filename= {}".format(filename)
 )
 
 # Add attachment to message and convert message to string
