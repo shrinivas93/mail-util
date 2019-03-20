@@ -1,4 +1,6 @@
-import email, smtplib, ssl
+import email
+import smtplib
+import ssl
 
 from email import encoders
 from email.mime.base import MIMEBase
@@ -19,7 +21,7 @@ password = ''
 # Create a multipart message and set headers
 message = MIMEMultipart()
 message["From"] = sender_email
-message.add_header('from',sender_email)
+message.add_header('from', sender_email)
 message["To"] = " ".join(receiver_emails)
 message["Subject"] = subject
 # message["Bcc"] = receiver_emails  # Recommended for mass emails
@@ -36,7 +38,7 @@ with open(filename, "rb") as attachment:
     part = MIMEBase("application", "octet-stream")
     part.set_payload(attachment.read())
 
-# Encode file in ASCII characters to send by email    
+# Encode file in ASCII characters to send by email
 encoders.encode_base64(part)
 
 # Add header as key/value pair to attachment part
